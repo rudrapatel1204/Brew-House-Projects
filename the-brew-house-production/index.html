@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THE BREW HOUSE — Aesthetic Social Café & Creative Hub | Vadodara</title>
+  <meta name="description" content="Where Great Coffee Meets Good Energy. An aesthetic social café, creative workspace, and acoustic vinyl hub in Alkapuri, Vadodara. Crafted for WebBlaze Studio.">
+  <meta name="keywords" content="The Brew House Vadodara, aesthetic cafe Alkapuri, specialty coffee Gujarat, coworking cafe Vadodara, vinyl cafe, acoustic nights">
+
+  <!-- Open Graph Metadata -->
+  <meta property="og:title" content="THE BREW HOUSE — Where Great Coffee Meets Good Energy">
+  <meta property="og:description" content="An aesthetic sanctuary for dreamers, creators, and coffee lovers in Alkapuri, Vadodara.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Editorial Serif + Modern Sans + Handwriting -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===================================================================
+       TOP VIBE BAR & ANNOUNCEMENT TICKER
+       =================================================================== -->
+  <aside class="top-vibe-bar" aria-label="Café Status and Announcements">
+    <div class="vibe-badge-group">
+      <span class="live-indicator">
+        <span class="live-pulse"></span>
+        <span>Open Now • Closes 11:30 PM</span>
+      </span>
+      <span class="vibe-now-text" id="vibeStatusText">
+        Current Vibe: <span>Golden Hour Acoustic & Pour-Overs</span>
+      </span>
+    </div>
+
+    <!-- Marquee Ticker -->
+    <div class="ticker-wrapper" aria-hidden="true">
+      <div class="ticker-content">
+        <span class="ticker-item"><i class="fa-solid fa-mug-hot"></i> Fresh Batch: Single-Origin Ethiopia Yirgacheffe on Chemex Bar</span>
+        <span class="ticker-item"><i class="fa-solid fa-guitar"></i> Weekend Session: Indie Acoustic Jam Session w/ Guest Artists (7:30 PM)</span>
+        <span class="ticker-item"><i class="fa-solid fa-croissant"></i> Flaky Butter Truffle Croissants fresh out of the oven every 45 mins</span>
+        <span class="ticker-item"><i class="fa-solid fa-palette"></i> Creative Workshop: Sip & Ceramic Painting — Limited Sample Seats</span>
+        <span class="ticker-item"><i class="fa-solid fa-location-dot"></i> 14, Heritage Avenue, Opposite Circuit House, Alkapuri, Vadodara</span>
+      </div>
+    </div>
+
+    <!-- Quick Controls -->
+    <div class="top-controls">
+      <!-- Live Data Portal Button -->
+      <button class="btn-portal-trigger" onclick="openLivePortal()" aria-label="Open Live Database Portal">
+        <i class="fa-solid fa-database" aria-hidden="true"></i> <span>Live Data Portal</span>
+      </button>
+
+      <!-- Ambient Audio Trigger -->
+      <button class="btn-icon-sm" id="ambientAudioToggle" title="Toggle Lo-Fi Ambient Soundscape" aria-label="Toggle ambient café soundscape">
+        <span class="soundwave-bars" id="soundwaveBars">
+          <span></span><span></span><span></span>
+        </span>
+        <span id="soundLabel">Ambient Audio</span>
+      </button>
+
+      <!-- Theme Switcher -->
+      <button class="btn-icon-sm" id="themeToggleBtn" title="Switch Theme" aria-label="Switch between Golden Hour and Midnight theme">
+        <i class="fa-solid fa-sun"></i> <span>Golden Hour</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ===================================================================
+       STICKY RESPONSIVE NAVIGATION
+       =================================================================== -->
+  <header class="main-header" id="mainHeader">
+    <div class="container nav-container">
+      <!-- Brand Monogram & Logo -->
+      <a href="#hero" class="brand-logo" aria-label="The Brew House Home">
+        <span class="brand-title">
+          <i class="fa-solid fa-mug-saucer brand-icon" aria-hidden="true"></i> The Brew House
+        </span>
+        <span class="brand-subtitle">Craft Coffee • Creative Hub • Vadodara</span>
+      </a>
+
+      <!-- Navigation Links (ScrollSpy Enabled) -->
+      <nav aria-label="Primary Site Navigation">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#hero" class="nav-link active">The Sanctuary</a></li>
+          <li><a href="#about" class="nav-link">Our Story</a></li>
+          <li><a href="#spaces" class="nav-link">The Spaces</a></li>
+          <li><a href="#menu" class="nav-link">Menu</a></li>
+          <li><a href="#gallery" class="nav-link">Gallery</a></li>
+          <li><a href="#reservation" class="nav-link">Reservations</a></li>
+          <li><a href="#location" class="nav-link">Location & Hours</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Actions: Tray & Table CTA -->
+      <div class="nav-actions">
+        <!-- Live Order Tray Trigger -->
+        <button class="btn-cart-trigger" id="cartDrawerTrigger" aria-label="Open Table Order Tray">
+          <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+          <span>Tray</span>
+          <span class="cart-count-badge" id="cartCountBadge">0</span>
+        </button>
+
+        <!-- Primary Reservation CTA -->
+        <a href="#reservation" class="btn-primary">
+          <i class="fa-regular fa-calendar-check" aria-hidden="true"></i> Book a Table
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="btn-mobile-toggle" id="mobileNavToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================================================================
+         A. FULL-VIEWPORT (100VH) HERO SECTION
+         =================================================================== -->
+    <section class="hero-section" id="hero" aria-label="Hero Welcome">
+      <div class="hero-ambient-glow" aria-hidden="true"></div>
+      <div class="hero-ambient-glow-left" aria-hidden="true"></div>
+
+      <div class="container hero-grid">
+        <!-- Hero Narrative -->
+        <div class="hero-content">
+          <div class="hero-tagline-badge">
+            <i class="fa-solid fa-sparkles" aria-hidden="true"></i>
+            <span>Where Great Coffee Meets Good Energy</span>
+          </div>
+
+          <h1 class="hero-title">
+            Step Into Your <em>New Favorite</em> <br>
+            <span class="highlight-terracotta">Routine.</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            More than just specialty coffee. An immersive cultural sanctuary for dreamers, remote creators, and vinyl enthusiasts nestled in the heart of Alkapuri, Vadodara.
+          </p>
+
+          <!-- Dual Calls to Action -->
+          <div class="hero-cta-group">
+            <a href="#menu" class="btn-primary">
+              <i class="fa-solid fa-mug-hot" aria-hidden="true"></i> Explore Menu
+            </a>
+            <a href="#reservation" class="btn-secondary">
+              <i class="fa-solid fa-couch" aria-hidden="true"></i> Reserve a Table
+            </a>
+            <a href="#location" class="btn-secondary" style="border-style:dashed;">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i> Contact Us
+            </a>
+          </div>
+
+          <!-- Verified Brand Hallmarks -->
+          <div class="hero-vibe-metrics">
+            <div class="vibe-metric-item">
+              <div class="metric-num">100<span>%</span></div>
+              <span class="metric-label">Single Origin Arabica</span>
+            </div>
+            <div class="vibe-metric-item">
+              <div class="metric-num">300<span>Mbps</span></div>
+              <span class="metric-label">Creator Fiber Wi-Fi 6</span>
+            </div>
+            <div class="vibe-metric-item">
+              <div class="metric-num">45<span>+</span></div>
+              <span class="metric-label">Rare Houseplants</span>
+            </div>
+            <div class="vibe-metric-item">
+              <div class="metric-num">1970<span>s</span></div>
+              <span class="metric-label">Analog Technics Vinyl</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual Showcase -->
+        <div class="hero-visual-card">
+          <div class="hero-image-frame">
+            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80" alt="Warm ambient interior of The Brew House café in Alkapuri" id="heroVisualImg" loading="eager" fetchpriority="high">
+            <div class="hero-image-gradient" aria-hidden="true"></div>
+          </div>
+
+          <!-- Floating Badge: Now Playing On Vinyl -->
+          <div class="floating-badge badge-top-right">
+            <div class="badge-now-playing">
+              <div class="vinyl-disk-mini" aria-hidden="true"></div>
+              <div class="badge-track-info">
+                <span class="track-label">Now Spinning on Vinyl</span>
+                <span class="track-name" id="heroNowPlaying">Cigarettes After Sex - Apocalypse</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating Badge: Brand Identity -->
+          <div class="floating-badge badge-bottom-left">
+            <div class="concept-badge-text">
+              <strong>Artisanal Micro-Roasts & Bakes</strong>
+              Handcrafted in Alkapuri, Vadodara (Sample Concept Preview)
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         B. EDITORIAL ABOUT SECTION & BRAND PHILOSOPHY
+         =================================================================== -->
+    <section class="section-padding about-section" id="about" aria-label="About The Brew House">
+      <div class="container">
+        <div class="about-grid">
+          <!-- Composite Photography Frame -->
+          <div class="about-images-composite">
+            <div class="about-img-main">
+              <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=80" alt="Master barista pouring manual pour-over coffee" loading="lazy" decoding="async">
+            </div>
+            <div class="about-img-sub">
+              <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=600&q=80" alt="Fresh single-origin coffee beans and botanical leaves" loading="lazy" decoding="async">
+            </div>
+          </div>
+
+          <!-- Editorial Narrative -->
+          <div class="about-narrative">
+            <span class="section-tag"><i class="fa-solid fa-feather"></i> Our Core Philosophy</span>
+            <h2 class="section-title">More Than A Café.<br>A Cultural Sanctuary.</h2>
+            <p>
+              Born from a love for slow living, uncompromising specialty coffee, and the vibrant creative energy of Vadodara, <strong>THE BREW HOUSE</strong> was designed for WebBlaze Studio as a physical sanctuary where artisan craftsmanship meets unhurried conversations.
+            </p>
+            <p>
+              We believe great coffee requires patience. Our micro-lot beans are ethical farm-direct selections sourced from shade-grown estates across Chikmagalur, Coorg, and Ethiopia, roasted locally in micro-batches to accentuate their native floral and stone-fruit notes.
+            </p>
+
+            <!-- Three Pillars -->
+            <div class="about-pillars-list">
+              <div class="about-pillar-item">
+                <div class="about-pillar-icon"><i class="fa-solid fa-seedling"></i></div>
+                <div class="about-pillar-text">
+                  <h4>Ethical Single-Origin Microlots</h4>
+                  <p>Direct relationship coffees roasted light-to-medium to preserve natural terroir and sweetness.</p>
+                </div>
+              </div>
+
+              <div class="about-pillar-item">
+                <div class="about-pillar-icon"><i class="fa-solid fa-sun"></i></div>
+                <div class="about-pillar-text">
+                  <h4>Biophilic Light & Acoustic Sanctuary</h4>
+                  <p>Abundant natural sunlight, over 45 living botanicals, and noise-dampened acoustics for deep clarity.</p>
+                </div>
+              </div>
+
+              <div class="about-pillar-item">
+                <div class="about-pillar-icon"><i class="fa-solid fa-users-viewfinder"></i></div>
+                <div class="about-pillar-text">
+                  <h4>A Home For Vadodara’s Creators</h4>
+                  <p>Universal ergonomic desks, enterprise-grade 300 Mbps Wi-Fi, and weekend unplugged acoustic jams.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         C. THE SPACES (CURATED SPATIAL ZONES)
+         =================================================================== -->
+    <section class="section-padding spaces-section" id="spaces" aria-label="Spatial Zones Explorer">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fa-solid fa-shapes"></i> Curated Spatial Zones</span>
+          <h2 class="section-title">Designed For Every State Of Mind.</h2>
+          <p class="section-subtitle">
+            Whether you crave natural sunlight and quiet book pages, an ultra-fast work desk fueled by double shots, or late-night vinyl warmth with friends.
+          </p>
+        </div>
+
+        <!-- Spaces Switcher Tabs -->
+        <div class="space-tabs-nav" role="tablist">
+          <button class="space-tab-btn active" data-zone="greenhouse" role="tab" aria-selected="true">
+            <i class="fa-solid fa-leaf"></i> Sunlit Greenhouse
+          </button>
+          <button class="space-tab-btn" data-zone="creator" role="tab" aria-selected="false">
+            <i class="fa-solid fa-laptop-code"></i> The Creator Den
+          </button>
+          <button class="space-tab-btn" data-zone="acoustic" role="tab" aria-selected="false">
+            <i class="fa-solid fa-record-vinyl"></i> Acoustic Lounge & Vinyl
+          </button>
+          <button class="space-tab-btn" data-zone="roastery" role="tab" aria-selected="false">
+            <i class="fa-solid fa-fire-burner"></i> Cupping & Roastery Bar
+          </button>
+        </div>
+
+        <!-- Interactive Spaces Display Card -->
+        <div class="space-display-card">
+          <div class="space-gallery">
+            <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=1200&q=80" alt="Sunlit greenhouse corner with lush monstera plants and cozy armchair" id="spaceImg" loading="lazy" decoding="async">
+            <span class="space-vibe-tag" id="spaceTag">Zone 01 • Reading & Plants</span>
+          </div>
+
+          <div class="space-details">
+            <h3 class="space-name" id="spaceName">The Sunlit Greenhouse Corner</h3>
+            <p class="space-desc" id="spaceDesc">
+              Bathed in natural morning sunlight filtered through our floor-to-ceiling glass atrium, surrounded by 40+ exotic monsteras, fiddle-leaf figs, and trailing pothos. The undisputed sanctuary for slow journaling, book club meetups, and contemplative pour-overs.
+            </p>
+
+            <ul class="space-features-list" id="spaceFeatures">
+              <li><i class="fa-solid fa-circle-check"></i> Natural Golden Hour Sunlight</li>
+              <li><i class="fa-solid fa-circle-check"></i> Vintage Velvet Armchairs</li>
+              <li><i class="fa-solid fa-circle-check"></i> Botanical Curated Library</li>
+              <li><i class="fa-solid fa-circle-check"></i> Gentle Acoustic Volume Policy</li>
+            </ul>
+
+            <div>
+              <a href="#reservation" class="btn-primary">
+                <i class="fa-solid fa-couch"></i> Reserve This Space
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         D. MASTERPIECE MENU (STRUCTURED CARDS & FILTERING)
+         =================================================================== -->
+    <section class="section-padding menu-section" id="menu" aria-label="Menu Offerings">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fa-solid fa-utensils"></i> Artisanal Culinary Craft</span>
+          <h2 class="section-title">The Masterpiece Menu.</h2>
+          <p class="section-subtitle">
+            Small-batch roasted coffees, Japanese ceremonial tea lattes, and handcrafted gourmet bakery bites made fresh right here in Alkapuri.
+          </p>
+          <div class="demo-disclaimer-pill">
+            <i class="fa-solid fa-circle-info"></i> *Sample Menu Offerings & Pricing for Demonstration Purposes
+          </div>
+        </div>
+
+        <!-- Category Filter Tabs -->
+        <div class="menu-category-filter" role="tablist">
+          <button class="menu-filter-btn active" data-filter="all" role="tab" aria-selected="true">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> All Curations
+          </button>
+          <button class="menu-filter-btn" data-filter="coffee" role="tab" aria-selected="false">
+            <i class="fa-solid fa-mug-hot"></i> Coffee (Artisan Brews)
+          </button>
+          <button class="menu-filter-btn" data-filter="beverages" role="tab" aria-selected="false">
+            <i class="fa-solid fa-flask"></i> Beverages & Matchas
+          </button>
+          <button class="menu-filter-btn" data-filter="snacks" role="tab" aria-selected="false">
+            <i class="fa-solid fa-bread-slice"></i> Gourmet Bites & Snacks
+          </button>
+          <button class="menu-filter-btn" data-filter="desserts" role="tab" aria-selected="false">
+            <i class="fa-solid fa-cake-candles"></i> Desserts & Bakes
+          </button>
+          <button class="menu-filter-btn" data-filter="vegan" role="tab" aria-selected="false">
+            <i class="fa-solid fa-seedling"></i> Plant-Based Specials
+          </button>
+        </div>
+
+        <!-- Dynamic Menu Grid -->
+        <div class="menu-grid" id="menuGridContainer">
+          <!-- Rendered dynamically via js/main.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         E. EDITORIAL IMAGE GALLERY WITH ACCESSIBLE LIGHTBOX
+         =================================================================== -->
+    <section class="section-padding gallery-section" id="gallery" aria-label="Editorial Image Gallery">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fa-solid fa-camera"></i> Architectural & Culinary Moments</span>
+          <h2 class="section-title">The Visual Atmosphere.</h2>
+          <p class="section-subtitle">
+            A window into the sunlight, craftsmanship, and quiet indie aesthetics that define our Alkapuri café sanctuary.
+          </p>
+          <div class="demo-disclaimer-pill">
+            <i class="fa-solid fa-circle-info"></i> *Sample Editorial Photography for Concept Demonstration
+          </div>
+        </div>
+
+        <!-- Uniform Aspect-Ratio Grid -->
+        <div class="editorial-gallery-grid" id="editorialGalleryGrid">
+          <!-- Injected dynamically via js/main.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         F. TABLE RESERVATIONS & CONTACT INTEGRATION
+         =================================================================== -->
+    <section class="section-padding reservation-section" id="reservation" aria-label="Table Reservations">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fa-regular fa-calendar-days"></i> Priority Seating</span>
+          <h2 class="section-title">Reserve Your Cozy Corner.</h2>
+          <p class="section-subtitle">
+            Pick your preferred zone, select your time slot, and confirm. All bookings are recorded into your database and directly dispatched to WhatsApp.
+          </p>
+        </div>
+
+        <div class="booking-container-card">
+          <div class="booking-wizard-grid">
+            <!-- Left: Validated Reservation Form -->
+            <form class="booking-form-col" id="reservationForm" novalidate>
+              <!-- Zone Picker -->
+              <div class="form-field">
+                <label class="form-label"><i class="fa-solid fa-layer-group"></i> 1. Select Your Spatial Zone</label>
+                <div class="zone-picker-grid">
+                  <div class="zone-tile selected" data-zone-name="The Sunlit Greenhouse Corner" tabindex="0">
+                    <span class="zone-tile-title"><i class="fa-solid fa-leaf"></i> Greenhouse Corner</span>
+                    <span class="zone-tile-desc">Reading, natural daylight & plants</span>
+                  </div>
+                  <div class="zone-tile" data-zone-name="The Creator Den (High-Speed Wi-Fi)" tabindex="0">
+                    <span class="zone-tile-title"><i class="fa-solid fa-laptop-code"></i> The Creator Den</span>
+                    <span class="zone-tile-desc">Deep focus, power outlets & 300 Mbps</span>
+                  </div>
+                  <div class="zone-tile" data-zone-name="The Acoustic Lounge (Vinyl Nook)" tabindex="0">
+                    <span class="zone-tile-title"><i class="fa-solid fa-record-vinyl"></i> Acoustic Lounge</span>
+                    <span class="zone-tile-desc">Chesterfield sofas & analog vinyl</span>
+                  </div>
+                  <div class="zone-tile" data-zone-name="The Sensory Roastery Brew Bar" tabindex="0">
+                    <span class="zone-tile-title"><i class="fa-solid fa-fire-burner"></i> Roastery Brew Bar</span>
+                    <span class="zone-tile-desc">Front-row manual pour-over extraction</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Date & Time Row -->
+              <div class="form-group-row">
+                <div class="form-field">
+                  <label class="form-label" for="resDate"><i class="fa-regular fa-calendar"></i> 2. Date *</label>
+                  <input type="date" class="form-input" id="resDate" required aria-required="true">
+                  <span class="form-error-msg" id="resDateError">Please select a valid future date.</span>
+                </div>
+                <div class="form-field">
+                  <label class="form-label" for="resTime"><i class="fa-regular fa-clock"></i> 3. Time Session *</label>
+                  <select class="form-select" id="resTime" required aria-required="true">
+                    <option value="morning">Morning Pour-Overs (08:30 AM – 11:30 AM)</option>
+                    <option value="afternoon">Afternoon Deep Work (12:00 PM – 04:00 PM)</option>
+                    <option value="golden" selected>Golden Hour Chill (04:30 PM – 07:00 PM)</option>
+                    <option value="acoustic">Late Night Vinyl & Acoustic (07:30 PM – 11:00 PM)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Guests & Contact Row -->
+              <div class="form-group-row">
+                <div class="form-field">
+                  <label class="form-label" for="resGuests"><i class="fa-solid fa-user-group"></i> 4. Party Size *</label>
+                  <select class="form-select" id="resGuests" required aria-required="true">
+                    <option value="1">1 Guest (Solitary Deep Work)</option>
+                    <option value="2" selected>2 Guests (Cozy Coffee Catch-up)</option>
+                    <option value="3-4">3 - 4 Guests (Creative Crew)</option>
+                    <option value="5-8">5 - 8 Guests (Team Brainstorm)</option>
+                    <option value="9-12">9 - 12 Guests (Private Group Booking)</option>
+                  </select>
+                </div>
+                <div class="form-field">
+                  <label class="form-label" for="resName"><i class="fa-regular fa-user"></i> 5. Full Name *</label>
+                  <input type="text" class="form-input" id="resName" required placeholder="e.g. Diya Sharma" aria-required="true">
+                  <span class="form-error-msg" id="resNameError">Please enter your full name (min 2 characters).</span>
+                </div>
+              </div>
+
+              <!-- Phone & Notes Row -->
+              <div class="form-group-row">
+                <div class="form-field">
+                  <label class="form-label" for="resPhone"><i class="fa-brands fa-whatsapp"></i> 6. Phone Number *</label>
+                  <input type="tel" class="form-input" id="resPhone" required placeholder="e.g. 9876543210" aria-required="true">
+                  <span class="form-error-msg" id="resPhoneError">Please enter a valid 10-digit phone number.</span>
+                </div>
+                <div class="form-field">
+                  <label class="form-label" for="resNotes"><i class="fa-regular fa-comment-dots"></i> 7. Special Notes (Optional)</label>
+                  <input type="text" class="form-input" id="resNotes" placeholder="e.g., Near power outlet, quiet corner">
+                </div>
+              </div>
+
+              <button type="submit" class="btn-primary" style="margin-top:0.6rem; justify-content:center; padding:0.9rem;">
+                <i class="fa-solid fa-check"></i> Confirm Reservation & Save to Database
+              </button>
+            </form>
+
+            <!-- Right: Live Boarding Pass Preview -->
+            <div class="booking-preview-col">
+              <div class="booking-preview-ticket">
+                <div class="ticket-header">
+                  <span class="ticket-tag">Live Boarding Pass Preview</span>
+                  <h4 class="ticket-title" id="previewTicketZone">The Sunlit Greenhouse Corner</h4>
+                </div>
+
+                <div class="ticket-rows">
+                  <div class="ticket-row">
+                    <span class="label">Date:</span>
+                    <span class="val" id="previewTicketDate">Today</span>
+                  </div>
+                  <div class="ticket-row">
+                    <span class="label">Time Session:</span>
+                    <span class="val" id="previewTicketTime">Golden Hour Chill (04:30 PM – 07:00 PM)</span>
+                  </div>
+                  <div class="ticket-row">
+                    <span class="label">Party Size:</span>
+                    <span class="val" id="previewTicketGuests">2 Guests</span>
+                  </div>
+                  <div class="ticket-row">
+                    <span class="label">Sanctuary:</span>
+                    <span class="val">Alkapuri, Vadodara</span>
+                  </div>
+                </div>
+
+                <div class="ticket-perk-badge">
+                  <i class="fa-solid fa-gem" aria-hidden="true"></i>
+                  <span>Includes 300 Mbps Wi-Fi & Welcome Tasting Sip</span>
+                </div>
+
+                <div class="ticket-code-display">TBH-SANCTUARY-PASS</div>
+              </div>
+
+              <!-- Instant WhatsApp Concierge Button -->
+              <div style="margin-top:1.5rem; text-align:center;">
+                <p style="font-size:0.8rem; color:var(--toasted-oat); margin-bottom:0.6rem;">Direct WhatsApp Hospitality Desk</p>
+                <a href="https://api.whatsapp.com/send?phone=919876543210&text=Hello%20The%20Brew%20House%20Concierge!%20I'd%20like%20to%20reserve%20a%20table%20at%20Alkapuri." target="_blank" rel="noopener" class="btn-whatsapp" style="width:100%; justify-content:center;">
+                  <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Chat on WhatsApp Concierge
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         G. LOCATION & INTERACTIVE MAP SECTION
+         =================================================================== -->
+    <section class="section-padding location-section" id="location" aria-label="Location and Operating Hours">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fa-solid fa-location-dot"></i> The Cultural Destination</span>
+          <h2 class="section-title">Find Us In Alkapuri, Vadodara.</h2>
+          <p class="section-subtitle">
+            Centrally situated on Vadodara's prestigious Heritage Avenue, right across from the historic Circuit House with shaded avenues and complimentary valet.
+          </p>
+        </div>
+
+        <div class="location-grid">
+          <!-- Location Details Card -->
+          <div class="location-info-card">
+            <div class="info-block">
+              <div class="info-icon-box"><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i></div>
+              <div class="info-content">
+                <h4>Address & Sanctuary</h4>
+                <p>14, Heritage Avenue, Opposite Circuit House, Alkapuri, Vadodara, Gujarat 390007</p>
+              </div>
+            </div>
+
+            <div class="info-block">
+              <div class="info-icon-box"><i class="fa-regular fa-clock" aria-hidden="true"></i></div>
+              <div class="info-content">
+                <h4>Operating Hours <span style="font-size:0.75rem; color:var(--amber-gold); font-weight:normal;">(*Sample Schedule)</span></h4>
+                <p>
+                  <strong>Monday – Thursday:</strong> 08:00 AM – 11:30 PM<br>
+                  <strong>Friday – Sunday:</strong> 08:00 AM – 01:00 AM (Late Night Vinyl & Acoustic)
+                </p>
+              </div>
+            </div>
+
+            <div class="info-block">
+              <div class="info-icon-box"><i class="fa-solid fa-phone-volume" aria-hidden="true"></i></div>
+              <div class="info-content">
+                <h4>Hospitality Inquiries & WhatsApp</h4>
+                <p>+91 (0265) 234-8900 • Direct WhatsApp Desk Available</p>
+              </div>
+            </div>
+
+            <!-- Amenities Badges -->
+            <div class="amenities-badges-row">
+              <span class="amenity-pill"><i class="fa-solid fa-wifi" aria-hidden="true"></i> 300 Mbps Fiber Wi-Fi</span>
+              <span class="amenity-pill"><i class="fa-solid fa-car" aria-hidden="true"></i> Complimentary Valet</span>
+              <span class="amenity-pill"><i class="fa-solid fa-charging-station" aria-hidden="true"></i> 2x EV Fast Chargers</span>
+              <span class="amenity-pill"><i class="fa-solid fa-paw" aria-hidden="true"></i> Pet-Friendly Sun Patio</span>
+              <span class="amenity-pill"><i class="fa-solid fa-plug" aria-hidden="true"></i> Universal Desk Outlets</span>
+            </div>
+
+            <!-- Contact Actions -->
+            <div class="contact-action-btns">
+              <a href="https://maps.google.com/?q=Alkapuri+Vadodara+Gujarat" target="_blank" rel="noopener" class="btn-primary">
+                <i class="fa-solid fa-diamond-turn-right" aria-hidden="true"></i> Open in Google Maps
+              </a>
+              <a href="https://api.whatsapp.com/send?phone=919876543210&text=Hello%20The%20Brew%20House!%20I'd%20like%20to%20inquire%20about%20visiting." target="_blank" rel="noopener" class="btn-whatsapp">
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp Desk
+              </a>
+            </div>
+
+            <!-- Interactive Nearby Landmarks Selector -->
+            <div style="margin-top:1rem; padding-top:1.2rem; border-top:1px solid var(--border-subtle);">
+              <span style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-dim); display:block; margin-bottom:0.6rem;">
+                Estimated Driving Distance From Key Landmarks:
+              </span>
+              <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+                <button class="amenity-pill landmark-pill active" data-dist="4 mins">Sayaji Baug Garden</button>
+                <button class="amenity-pill landmark-pill" data-dist="6 mins">Vadodara Railway Station</button>
+                <button class="amenity-pill landmark-pill" data-dist="3 mins">Inox Racecourse Road</button>
+                <button class="amenity-pill landmark-pill" data-dist="15 mins">Vadodara Airport (BDQ)</button>
+              </div>
+              <p id="landmarkDistanceText" style="font-size:0.82rem; color:var(--amber-gold); margin-top:0.6rem; font-weight:500;">
+                📍 Sayaji Baug Garden: Approx. 4 mins driving distance to The Brew House Alkapuri.
+              </p>
+            </div>
+          </div>
+
+          <!-- Stylized Interactive Map Canvas -->
+          <div class="map-visual-container">
+            <div class="map-header-bar">
+              <span class="map-city-tag">
+                <i class="fa-solid fa-compass" aria-hidden="true"></i> Alkapuri Hub Navigator • Vadodara
+              </span>
+              <div class="map-style-toggles">
+                <button class="map-style-btn active" data-style="mocha">Mocha Dark</button>
+                <button class="map-style-btn" data-style="golden">Golden Hour</button>
+                <button class="map-style-btn" data-style="streets">Streets</button>
+              </div>
+            </div>
+
+            <div class="interactive-map-canvas">
+              <svg class="map-grid-svg" id="mapGridSvg" viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg">
+                <rect width="600" height="450" fill="#18130E"/>
+                
+                <!-- Vishwamitri River Curve Representation -->
+                <path d="M 520 -20 Q 480 150, 510 280 T 490 470" fill="none" stroke="#253A47" stroke-width="24" opacity="0.6"/>
+                
+                <!-- Major Roads -->
+                <line x1="-50" y1="210" x2="650" y2="210" stroke="#342820" stroke-width="14"/>
+                <line x1="-50" y1="210" x2="650" y2="210" stroke="#E5A93C" stroke-width="2" stroke-dasharray="8 6" opacity="0.4"/>
+                <line x1="310" y1="-20" x2="310" y2="470" stroke="#342820" stroke-width="12"/>
+                <line x1="40" y1="420" x2="520" y2="60" stroke="#2D211A" stroke-width="8"/>
+                
+                <!-- Circuit House Gardens Representation -->
+                <rect x="220" y="70" width="160" height="100" rx="12" fill="#1C2E24" opacity="0.7"/>
+                <text x="300" y="125" fill="#4E8C68" font-size="11" font-family="'Plus Jakarta Sans', sans-serif" text-anchor="middle" font-weight="600">Circuit House Gardens</text>
+                
+                <!-- Sayaji Baug Indicator -->
+                <rect x="420" y="240" width="140" height="120" rx="10" fill="#1A2D22" opacity="0.6"/>
+                <text x="490" y="305" fill="#4E8C68" font-size="11" font-family="'Plus Jakarta Sans', sans-serif" text-anchor="middle" font-weight="600">Sayaji Baug Park</text>
+
+                <!-- Landmarks -->
+                <circle cx="150" cy="210" r="6" fill="#3C2A21" stroke="#D5CEA3" stroke-width="1.5"/>
+                <text x="150" y="235" fill="#D5CEA3" font-size="10" font-family="'Plus Jakarta Sans', sans-serif" text-anchor="middle">Inox Alkapuri</text>
+
+                <circle cx="480" cy="180" r="6" fill="#3C2A21" stroke="#D5CEA3" stroke-width="1.5"/>
+                <text x="480" y="165" fill="#D5CEA3" font-size="10" font-family="'Plus Jakarta Sans', sans-serif" text-anchor="middle">Vadodara Rly Stn (East)</text>
+
+                <!-- Road Label -->
+                <text x="120" y="195" fill="#9C917B" font-size="10" font-family="'Plus Jakarta Sans', sans-serif" letter-spacing="1">HERITAGE AVENUE (RC DUTT RD)</text>
+                <text x="325" y="400" fill="#9C917B" font-size="10" font-family="'Plus Jakarta Sans', sans-serif" letter-spacing="1">CIRCUIT HOUSE RD</text>
+              </svg>
+
+              <!-- Map Pin -->
+              <div class="map-pin-pulse" tabindex="0" role="button" aria-label="The Brew House Café Location Pin">
+                <div class="pin-icon">
+                  <i class="fa-solid fa-mug-hot" aria-hidden="true"></i>
+                </div>
+                <div class="pin-tooltip-card">
+                  <h5>THE BREW HOUSE</h5>
+                  <p>14, Heritage Avenue, Alkapuri • Open Now</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================================================================
+       SLIDE-OUT LIVE ORDER SIMULATOR TRAY / DRAWER
+       =================================================================== -->
+  <div class="cart-drawer-overlay" id="cartDrawerOverlay" aria-hidden="true"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Table Order Tray Drawer" aria-hidden="true">
+    <div class="cart-drawer-header">
+      <h3 class="cart-drawer-title">
+        <i class="fa-solid fa-mug-saucer" style="color:var(--terracotta);" aria-hidden="true"></i> Table Order Tray
+      </h3>
+      <button class="btn-close-drawer" id="cartCloseBtn" aria-label="Close Order Tray Drawer">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <!-- Items List -->
+    <div class="cart-items-list" id="cartItemsList">
+      <!-- Injected by js/main.js -->
+    </div>
+
+    <!-- Drawer Footer -->
+    <div class="cart-drawer-footer">
+      <!-- Promo Code Field -->
+      <div class="promo-input-row">
+        <input type="text" class="promo-input" id="promoCodeInput" placeholder="Promo code (e.g. BREWVIBE10)">
+        <button class="btn-secondary" id="applyPromoBtn" style="padding:0.4rem 0.8rem; font-size:0.8rem;">Apply</button>
+      </div>
+      <div id="promoMsg" style="font-size:0.75rem; margin-bottom:0.6rem;"></div>
+
+      <!-- Totals Summary -->
+      <div class="cart-totals-summary">
+        <div class="total-line">
+          <span>Subtotal</span>
+          <span id="cartSubtotal">₹0</span>
+        </div>
+        <div class="total-line">
+          <span>Café GST / Service (5%)</span>
+          <span id="cartTax">₹0</span>
+        </div>
+        <div class="total-line">
+          <span>Discount</span>
+          <span id="cartDiscount" style="color:#2ECC71;">-₹0</span>
+        </div>
+        <div class="total-line grand-total">
+          <span>Grand Total</span>
+          <span id="cartGrandTotal">₹0</span>
+        </div>
+      </div>
+
+      <button class="btn-primary" id="checkoutBtn" style="width:100%; justify-content:center; padding:0.85rem;">
+        <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Dispatch Order to Counter
+      </button>
+    </div>
+  </aside>
+
+  <!-- ===================================================================
+       ACCESSIBLE LIGHTBOX MODAL CONTAINER
+       =================================================================== -->
+  <div class="lightbox-modal" id="accessibleLightbox" role="dialog" aria-modal="true" aria-label="Image Lightbox Viewer">
+    <button class="lightbox-close-btn" id="lightboxCloseBtn" aria-label="Close lightbox modal">
+      <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+    </button>
+    <button class="lightbox-nav-btn lightbox-prev-btn" id="lightboxPrevBtn" aria-label="Previous image">
+      <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+    </button>
+    <button class="lightbox-nav-btn lightbox-next-btn" id="lightboxNextBtn" aria-label="Next image">
+      <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+    </button>
+
+    <div class="lightbox-container">
+      <div class="lightbox-media-frame">
+        <img src="" alt="" id="lightboxImg">
+      </div>
+      <div class="lightbox-caption-bar">
+        <h4 class="lightbox-title" id="lightboxTitle"></h4>
+        <span class="lightbox-counter" id="lightboxCounter"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       REUSABLE POPUP MODAL (TASTING NOTES, BOOKINGS & RECEIPTS)
+       =================================================================== -->
+  <div class="modal-overlay" id="tastingModalOverlay" role="dialog" aria-modal="true" aria-label="Details Modal">
+    <div class="modal-box">
+      <button class="modal-close-btn" onclick="closeTastingModal()" aria-label="Close modal dialog">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+      <div id="tastingModalContent">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       LIVE DATA PORTAL & CAFÉ MANAGER MODAL (SUPABASE / LOCAL DATABASE)
+       =================================================================== -->
+  <div class="modal-overlay" id="portalModalOverlay" role="dialog" aria-modal="true" aria-label="Live Café Data Portal">
+    <div class="modal-box portal-modal-box">
+      <button class="modal-close-btn" onclick="closeLivePortal()" aria-label="Close database portal">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+
+      <div class="portal-header-bar">
+        <div>
+          <span class="section-tag" style="margin-bottom:0.4rem;"><i class="fa-solid fa-server"></i> Database & Manager Portal</span>
+          <h3 style="font-size:1.6rem; margin:0.2rem 0;">THE BREW HOUSE — Live Data Store</h3>
+          <p style="font-size:0.84rem; color:var(--toasted-oat);">Real-time submissions, reservations, and customer emails stored in your database.</p>
+        </div>
+        <div>
+          <span id="portalConnectionStatus" class="db-badge-pending"><i class="fa-solid fa-hard-drive"></i> Local Persistent Storage</span>
+        </div>
+      </div>
+
+      <!-- Summary Metric Cards -->
+      <div class="portal-stats-row">
+        <div class="portal-stat-card">
+          <span class="portal-stat-num" id="portalCountNewsletter">0</span>
+          <span class="portal-stat-label">Newsletter Subscribers</span>
+        </div>
+        <div class="portal-stat-card">
+          <span class="portal-stat-num" id="portalCountReservations">0</span>
+          <span class="portal-stat-label">Table Reservations</span>
+        </div>
+        <div class="portal-stat-card">
+          <span class="portal-stat-num" id="portalCountOrders">0</span>
+          <span class="portal-stat-label">Table Orders</span>
+        </div>
+      </div>
+
+      <!-- Tab Buttons -->
+      <div class="portal-nav-tabs">
+        <button class="portal-tab-btn active" data-tab="newsletter" onclick="switchPortalTab('newsletter')">
+          <i class="fa-solid fa-envelope"></i> Newsletter Emails
+        </button>
+        <button class="portal-tab-btn" data-tab="reservations" onclick="switchPortalTab('reservations')">
+          <i class="fa-solid fa-calendar-check"></i> Table Reservations
+        </button>
+        <button class="portal-tab-btn" data-tab="orders" onclick="switchPortalTab('orders')">
+          <i class="fa-solid fa-bag-shopping"></i> Tray Orders
+        </button>
+        <button class="portal-tab-btn" data-tab="supabase" onclick="switchPortalTab('supabase')">
+          <i class="fa-solid fa-cloud"></i> Supabase Setup & SQL
+        </button>
+      </div>
+
+      <!-- Pane 1: Newsletter -->
+      <div class="portal-tab-content active" id="portalPane_newsletter">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; flex-wrap:wrap; gap:0.5rem;">
+          <h4 style="font-size:1.05rem; color:var(--text-main);">Subscribers List ("The Secret Brew List")</h4>
+          <button class="btn-db-export" onclick="exportNewsletterCSV()">
+            <i class="fa-solid fa-download"></i> Export as CSV
+          </button>
+        </div>
+        <div class="db-table-wrapper">
+          <table class="db-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Subscriber Email</th>
+                <th>Submitted Timestamp</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="portalNewsletterTableBody">
+              <!-- Injected via JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Pane 2: Reservations -->
+      <div class="portal-tab-content" id="portalPane_reservations">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+          <h4 style="font-size:1.05rem; color:var(--text-main);">Table Reservations Log</h4>
+        </div>
+        <div class="db-table-wrapper">
+          <table class="db-table">
+            <thead>
+              <tr>
+                <th>Guest Name</th>
+                <th>Phone</th>
+                <th>Date & Session</th>
+                <th>Spatial Zone</th>
+                <th>Guests</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="portalReservationsTableBody">
+              <!-- Injected via JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Pane 3: Orders -->
+      <div class="portal-tab-content" id="portalPane_orders">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+          <h4 style="font-size:1.05rem; color:var(--text-main);">Table Orders Log</h4>
+        </div>
+        <div class="db-table-wrapper">
+          <table class="db-table">
+            <thead>
+              <tr>
+                <th>Order Code</th>
+                <th>Items</th>
+                <th>Total Amount</th>
+                <th>Time Received</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="portalOrdersTableBody">
+              <!-- Injected via JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Pane 4: Supabase Settings & SQL -->
+      <div class="portal-tab-content" id="portalPane_supabase">
+        <div class="supabase-setup-box">
+          <h4 style="font-size:1.15rem; margin-bottom:0.4rem; color:var(--amber-gold);">
+            <i class="fa-solid fa-bolt"></i> Connect to Supabase Cloud Database
+          </h4>
+          <p style="font-size:0.86rem; color:var(--toasted-oat); margin-bottom:1.2rem; line-height:1.6;">
+            Enter your Supabase project credentials below. All submissions will automatically write directly to your cloud PostgreSQL database in Supabase!
+          </p>
+
+          <div style="display:flex; flex-direction:column; gap:0.9rem; margin-bottom:1.4rem;">
+            <div>
+              <label style="font-size:0.78rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--toasted-oat); display:block; margin-bottom:0.3rem;">Supabase Project URL</label>
+              <input type="text" id="portalSupabaseUrl" class="form-input" style="width:100%;" placeholder="https://xyzcompany.supabase.co">
+            </div>
+            <div>
+              <label style="font-size:0.78rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--toasted-oat); display:block; margin-bottom:0.3rem;">Supabase Anon / Public API Key</label>
+              <input type="password" id="portalSupabaseKey" class="form-input" style="width:100%;" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...">
+            </div>
+            <button type="button" class="btn-primary" onclick="saveSupabaseConfigFromUI()" style="width:fit-content; padding:0.6rem 1.4rem;">
+              <i class="fa-solid fa-plug"></i> Save & Connect to Supabase
+            </button>
+          </div>
+
+          <div style="border-top:1px solid var(--border-subtle); padding-top:1.2rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.6rem; flex-wrap:wrap; gap:0.5rem;">
+              <span style="font-size:0.85rem; font-weight:600; color:var(--soft-amber);"><i class="fa-solid fa-terminal"></i> 1-Click Supabase SQL Schema</span>
+              <button class="btn-db-export" onclick="copySupabaseSQL()" style="font-size:0.74rem; padding:0.3rem 0.7rem;">
+                <i class="fa-solid fa-copy"></i> Copy SQL
+              </button>
+            </div>
+            <div class="code-box-display" id="supabaseSchemaCode">-- Run this in your Supabase SQL Editor:
+CREATE TABLE IF NOT EXISTS public.reservations (
+    id BIGSERIAL PRIMARY KEY,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
+    guest_name TEXT NOT NULL,
+    phone TEXT NOT NULL,
+    reservation_date DATE NOT NULL,
+    time_session TEXT NOT NULL,
+    party_size INTEGER NOT NULL DEFAULT 2,
+    spatial_zone TEXT NOT NULL,
+    special_notes TEXT,
+    status TEXT DEFAULT 'Confirmed' NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS public.newsletter_subscribers (
+    id BIGSERIAL PRIMARY KEY,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
+    email TEXT UNIQUE NOT NULL,
+    source TEXT DEFAULT 'Website Footer' NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS public.orders (
+    id BIGSERIAL PRIMARY KEY,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
+    order_code TEXT NOT NULL,
+    items JSONB NOT NULL,
+    total_amount NUMERIC NOT NULL,
+    customer_phone TEXT,
+    status TEXT DEFAULT 'Received' NOT NULL
+);
+
+ALTER TABLE public.reservations ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.newsletter_subscribers ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.orders ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Allow public insert reservations" ON public.reservations FOR INSERT TO anon WITH CHECK (true);
+CREATE POLICY "Allow public select reservations" ON public.reservations FOR SELECT TO anon USING (true);
+CREATE POLICY "Allow public insert newsletter" ON public.newsletter_subscribers FOR INSERT TO anon WITH CHECK (true);
+CREATE POLICY "Allow public select newsletter" ON public.newsletter_subscribers FOR SELECT TO anon USING (true);
+CREATE POLICY "Allow public insert orders" ON public.orders FOR INSERT TO anon WITH CHECK (true);
+CREATE POLICY "Allow public select orders" ON public.orders FOR SELECT TO anon USING (true);</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       STRUCTURED EDITORIAL FOOTER
+       =================================================================== -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Brand Narrative Col -->
+        <div class="footer-brand">
+          <h3 class="brand-title">THE BREW HOUSE</h3>
+          <p>
+            An aesthetic digital and physical sanctuary crafted for WebBlaze Studio. Where ethical single-origin coffee, inspiring creative workspaces, and analog vinyl culture meet in Alkapuri, Vadodara.
+          </p>
+          <div class="footer-social-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="social-circle-link" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://spotify.com" target="_blank" rel="noopener" class="social-circle-link" aria-label="Spotify Playlist"><i class="fa-brands fa-spotify" aria-hidden="true"></i></a>
+            <a href="https://api.whatsapp.com/send?phone=919876543210&text=Hello%20The%20Brew%20House!" target="_blank" rel="noopener" class="social-circle-link" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+            <a href="https://pinterest.com" target="_blank" rel="noopener" class="social-circle-link" aria-label="Pinterest Dream Board"><i class="fa-brands fa-pinterest" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links Col -->
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links-list">
+            <li><a href="#hero">The Sanctuary</a></li>
+            <li><a href="#about">Our Story</a></li>
+            <li><a href="#spaces">The 4 Spatial Zones</a></li>
+            <li><a href="#menu">Masterpiece Menu</a></li>
+            <li><a href="#gallery">Editorial Gallery</a></li>
+            <li><a href="#reservation">Table Reservations</a></li>
+            <li><a href="javascript:openLivePortal()" style="color:var(--amber-gold); font-weight:600;"><i class="fa-solid fa-server"></i> Live Data Portal</a></li>
+          </ul>
+        </div>
+
+        <!-- Spatial Zones Col -->
+        <div class="footer-col">
+          <h4>Curated Zones</h4>
+          <ul class="footer-links-list">
+            <li><a href="#spaces">Sunlit Greenhouse</a></li>
+            <li><a href="#spaces">The Creator Den</a></li>
+            <li><a href="#spaces">Acoustic & Vinyl Lounge</a></li>
+            <li><a href="#spaces">Cupping Brew Bar</a></li>
+            <li><a href="#location">Alkapuri Sanctuary</a></li>
+          </ul>
+        </div>
+
+        <!-- Secret Cupping List Col -->
+        <div class="footer-col">
+          <h4>The Secret Brew List</h4>
+          <p style="font-size:0.84rem; color:var(--toasted-oat); margin-bottom:0.8rem;">
+            Receive invitations to private single-origin coffee cuppings and acoustic vinyl sessions.
+          </p>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" class="newsletter-input" id="newsletterEmailInput" required placeholder="Enter your email address (e.g. wkbe@gmail.com)" aria-label="Email address for newsletter">
+            <button type="submit" class="btn-primary" style="justify-content:center; padding:0.65rem;">
+              Join The Sanctuary
+            </button>
+          </form>
+          <button type="button" class="btn-portal-trigger" style="margin-top:0.6rem; width:100%; justify-content:center;" onclick="openLivePortal('newsletter')">
+            <i class="fa-solid fa-database"></i> View Stored Subscribers
+          </button>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom-bar">
+        <div class="agency-credit">
+          Crafted with pure aesthetic craftsmanship by <strong>WebBlaze Studio</strong>.
+        </div>
+        <div>
+          © 2026 THE BREW HOUSE Vadodara. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 1. Supabase Official JavaScript SDK v2 -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  
+  <!-- 2. Database Integration Layer (Supabase Cloud + Local Persistent DB) -->
+  <script src="js/supabase-client.js"></script>
+
+  <!-- 3. Core Website Application Engine -->
+  <script src="js/main.js"></script>
+</body>
+</html>
